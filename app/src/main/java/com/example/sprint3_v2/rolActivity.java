@@ -43,7 +43,7 @@ public class rolActivity extends AppCompatActivity implements View.OnClickListen
     private View.OnClickListener informacionActivity=new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent int3= new Intent(contexto1, com.example.sprint3_v2.informacionActivity.class);
+            Intent int3= new Intent(contexto1, informacionActivity.class);
             startActivity(int3);
         }
     };
