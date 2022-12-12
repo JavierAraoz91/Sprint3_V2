@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         alum.put("correo","jpelaez@hotmail.com");
         alum.put("contraseña","hasuybr");
         alum.put("documento","15020120");
-        db.collection("Establecimientos")
+        db.collection("Registros")
                 .add(alum)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
