@@ -1,7 +1,6 @@
 package com.example.sprint3_v2;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class Adaptador extends RecyclerView.Adapter<Adaptador.MyViewHolder> {
+public class  Adaptador extends RecyclerView.Adapter<MyViewHolder> implements View.OnClickListener{
     Context contexto;
     List<Alumno> items;
     private View.OnClickListener listener;
@@ -28,25 +27,17 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View vista= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view,parent,false);
-        vista.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                System.out.println("vamos bien");
-            }
-        });
+        vista.setOnClickListener((View.OnClickListener) this);
         return new MyViewHolder(vista);
-    }
-
-    public void setOnClickListener(View.OnClickListener listener){
-        this.listener=listener;
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.nomView.setText(items.get(position).getNombre());
-        holder.curView.setText(items.get(position).getCurso());
+        holder.docView.setText(items.get(position).getDocumento());
+        holder.estatView.setText(String.valueOf(items.get(position).getEstatura()));
         holder.pesoView.setText(String.valueOf(items.get(position).getPeso()));
-        holder.imgView.setImageResource(items.get(position).getImage());
+        holder.imcView.setText(String.valueOf(items.get(position).getImc()));
+        holder.imageView.setImageResource(R.drawable.avatar);
     }
 
     @Override
@@ -54,17 +45,13 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.MyViewHolder> {
         return items.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
-        ImageView imgView;
-        TextView nomView, curView,pesoView;
-
-
-        public MyViewHolder(@NonNull View itemView) {
-            super(itemView);
-            imgView=itemView.findViewById(R.id.imgView);
-            nomView=itemView.findViewById(R.id.tvNombre);
-            curView=itemView.findViewById(R.id.tvCurso);
-            pesoView=itemView.findViewById(R.id.tvPeso);
+    @Override
+    public void onClick(View view){
+        if(listener!=null){
+            listener.onClick(view);
         }
+    }
+    public void setOnCliclListener(View.OnClickListener listener){
+        this.listener=listener;
     }
 }

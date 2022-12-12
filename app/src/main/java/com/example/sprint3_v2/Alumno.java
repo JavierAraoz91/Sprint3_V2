@@ -1,50 +1,50 @@
 package com.example.sprint3_v2;
 
 public class Alumno {
-    String nombre;
-    String curso;
-    int peso;
-    int image;
+    String documento;
+    String estatura;
+    String peso;
+    String imc;
 
-    public Alumno(String nombre, String curso, int peso, int image) {
-        this.nombre = nombre;
-        this.curso = curso;
+    public Alumno(String documento, String estatura, String peso, String imc) {
+        this.documento = documento;
+        this.estatura = estatura;
         this.peso = peso;
-        this.image = image;
+        this.imc = imc;
     }
 
     public Alumno() {
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getDocumento() {
+        return documento;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setDocumento(String documento) {
+        this.documento = documento;
     }
 
-    public String getCurso() {
-        return curso;
+    public String getEstatura() {
+        return estatura;
     }
 
-    public void setCurso(String curso) {
-        this.curso = curso;
+    public void setEstatura(String estatura) {
+        this.estatura = estatura;
     }
 
-    public int getPeso() {
+    public String getPeso() {
         return peso;
     }
 
-    public void setPeso(int peso) {
+    public void setPeso(String peso) {
         this.peso = peso;
     }
 
-    public int getImage() {
-        return image;
+    public String getImc() {
+        return imc;
     }
 
-    public void setImage(int image) {
-        this.image = image;
+    public void setImc(String imc) {
+        this.imc = imc;
     }
 }
